@@ -8,15 +8,19 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import DynamicFeedIcon from '@material-ui/icons/DynamicFeed';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import Avatar from "../../assests/img/avatar.svg";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import "./navbar.styles.css";
 import SettingsIcon from '@material-ui/icons/Settings';
 import Logo from "../../assests/img/main-logo.svg";
 import DellLogo from "../../assests/img/dell.svg";
+import Cover from "../Cover/cover.component";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    backgroundColor:"white !important" 
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
@@ -71,14 +75,35 @@ const useStyles = makeStyles((theme) => ({
       width: "80px",
       marginTop: "40px",
   },
+  avatarDiv:{
+      position: "absolute",
+      cursor: "pointer",
+      right: "50px",
+      display: "flex",
+      alignItems: "center",
+      [theme.breakpoints.between("xs", 770)]:{
+        right:"5px",
+      },
+  },
   navIcon:{
       color:"black"
   },
   content: {
-    flexGrow: 1,
+    width:"95% !important",
     padding: theme.spacing(3),
       backgroundColor:"#EBF7FF"
   },
+  center:{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center"
+  },
+  downArrow:{
+      fill:"rgb(43, 87, 245)",
+      height:"40px",
+      backgroundColor:"#F6F6FE",
+      borderRadius: "0 8px 8px 0"
+  }
 }));
 
 const Navbar = props => {
@@ -146,6 +171,12 @@ const Navbar = props => {
           >
             <MenuIcon />
           </IconButton>
+          <div className={classes.avatarDiv}>
+            <img src={Avatar} alt="avatar" style={{borderRadius: "8px 0 0 8px"}}/>
+            <div className={classes.center}>
+                <ExpandMoreIcon className={classes.downArrow}/>
+            </div>
+          </div>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
@@ -180,6 +211,7 @@ const Navbar = props => {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
+        <Cover/>
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
