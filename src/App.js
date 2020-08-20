@@ -1,12 +1,15 @@
 import React from 'react';
-import Product1 from "./assests/img/main-logo.svg";
+import Navbar from "./components/Navbar/navbar.component";
 import './App.css';
 
 const App = () => {
   return (
     <div className="App">
-      Hello World
-      <img src={Product1} alt=""/>
+      <Navbar />
+      {/*
+      <Cover />
+      <ItemList />
+      */}
     </div>
   );
 }
